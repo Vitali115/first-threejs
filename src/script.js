@@ -10,7 +10,7 @@ const textureLoader = new THREE.TextureLoader()
 const normalTexture = textureLoader.load('/textures/NormalMap.png')
 
 // Debug
-const gui = new dat.GUI()
+// const gui = new dat.GUI()
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
@@ -45,7 +45,7 @@ scene.add(pointLight)
 
 const pointLight2 = new THREE.PointLight(0xff0000, 0.2)
 
-pointLight2.position.set(-6,-5,-0.61)
+pointLight2.position.set(-6,-3,-3)
 pointLight2.intesity = 10
 
 scene.add(pointLight2)
@@ -65,7 +65,7 @@ scene.add(pointLight2)
 
 const pointLight3 = new THREE.PointLight(0x00ffff, 0.2)
 
-pointLight3.position.set(6,-5,-0.61)
+pointLight3.position.set(6,3,-3)
 pointLight3.intesity = 10
 
 scene.add(pointLight3)
@@ -77,9 +77,9 @@ scene.add(pointLight3)
 // gui.add(pointLight3.position, 'z').min(-3).max(3).step(0.01)
 // gui.add(pointLight3, 'intesity').min(0).max(10).step(0.01)
 
-// const light2Color = {
-//     color: 0xff0000
-// }
+const light2Color = {
+    color: 0xff0000
+}
 
 // light2.addColor(light2Color, 'color')
 //     .onChange(() => {
@@ -120,7 +120,7 @@ window.addEventListener('resize', () =>
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
 camera.position.x = 0
 camera.position.y = 0
-camera.position.z = 2
+camera.position.z = 1
 scene.add(camera)
 
 // Controls
