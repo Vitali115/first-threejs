@@ -21,6 +21,7 @@ const scene = new THREE.Scene()
 // Objects
 const geometry = new THREE.SphereBufferGeometry(.5, 64, 64)
 
+
 // Materials
 
 const material = new THREE.MeshStandardMaterial()
@@ -35,7 +36,7 @@ scene.add(sphere)
 
 // Lights
 
-const pointLight = new THREE.PointLight(0xffffff, 0.1)
+const pointLight = new THREE.PointLight(0xffffff, 0.001)
 pointLight.position.x = 2
 pointLight.position.y = 3
 pointLight.position.z = 4
@@ -45,7 +46,7 @@ scene.add(pointLight)
 
 const pointLight2 = new THREE.PointLight(0xff0000, 0.2)
 
-pointLight2.position.set(-6,-3,-3)
+pointLight2.position.set(-6,-3,3)
 pointLight2.intesity = 10
 
 scene.add(pointLight2)
@@ -65,7 +66,7 @@ scene.add(pointLight2)
 
 const pointLight3 = new THREE.PointLight(0x00ffff, 0.2)
 
-pointLight3.position.set(6,3,-3)
+pointLight3.position.set(6,3,3)
 pointLight3.intesity = 10
 
 scene.add(pointLight3)
@@ -191,3 +192,16 @@ const tick = () =>
 }
 
 tick()
+
+function addStar() {
+    const geometry = new THREE.SphereGeometry(0.25, 24, 24);
+    const material = new THREE.MeshStandardMaterial( { color: 0xffffff})
+    const star = new THREE.Mesh ( geometry, material);
+
+    const [x, y, z] = Array(3).fill().map(() =>THREE.MathUtils.randFloatSpread( 100) );
+
+    star.position.set(x, y, z);
+    scene.add(star)
+}
+
+Array(200).fill().forEach(addStar)
